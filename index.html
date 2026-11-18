@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Straffrätt – instuderingsmaterial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--ink:#1d1b19;--mute:#6b655d;--line:#e4ddd2;--acc:#8a2c2c;--acc2:#2c5d8a;--ok:#2f7a45;--bad:#a83232;--soft:#f3ebe3}
+@media (prefers-color-scheme:dark){:root{--bg:#171513;--card:#211f1c;--ink:#efe9e1;--mute:#a59d92;--line:#35312c;--acc:#e08a7a;--acc2:#8ab4e0;--ok:#7fc795;--bad:#e88;--soft:#2a2622}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+header{padding:28px 20px 8px;max-width:960px;margin:auto}
+h1{font-family:Fraunces,serif;font-size:2rem;margin:0 0 4px}
+h2{font-family:Fraunces,serif;font-size:1.4rem;margin:1.2em 0 .4em}
+h3{font-size:1.05rem;margin:1em 0 .3em}
+.sub{color:var(--mute);margin:0}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .in{max-width:960px;margin:auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px}
+nav button{border:0;background:none;color:var(--mute);font:500 .92rem Inter;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--ink);color:var(--bg)}
+main{max-width:960px;margin:auto;padding:8px 20px 60px}
+.view{display:none}.view.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+details.q{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:0}
+details.q summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;gap:10px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .n{color:var(--acc);font-family:Fraunces,serif;min-width:1.6em}
+details.q .body{padding:0 18px 16px 18px;border-top:1px solid var(--line)}
+.oral{background:var(--soft);border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin-top:12px}
+.oral b{color:var(--acc)}
+.law{font-size:.85rem;color:var(--acc2);font-weight:600}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--acc);margin-right:6px}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+td,th{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);font:600 .92rem Inter;padding:9px 16px;border-radius:9px;cursor:pointer}
+.btn.ghost{background:none;color:var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.flash{min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.15rem;cursor:pointer;user-select:none}
+.flash.back{font-size:1rem;background:var(--soft)}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--card))}
+.timer{font-family:Fraunces,serif;font-size:3.2rem;text-align:center;margin:8px 0}
+.lapp{font-family:Fraunces,serif;font-size:1.5rem;text-align:center;padding:24px;border:2px dashed var(--line);border-radius:14px;background:var(--card)}
+ul,ol{padding-left:1.3em}
+.mute{color:var(--mute);font-size:.9rem}
+textarea{width:100%;min-height:140px;font:inherit;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+<h1>Straffrätt</h1>
+<p class="sub">Lovisas instuderingsmaterial: 18 frågor, caseanalys, övningscase, flashcards, quiz och muntlig övning</p>
+</header>
+<nav><div class="in" id="tabs"></div></nav>
+<main>
+
+<section class="view" id="v-oversikt">
+<div class="card">
+<h2 style="margin-top:0">Så funkar provet</h2>
+<p><span class="tag">Del 1 · E–C</span><b>Skriftligt case, 20 min.</b> Du får en text eller film och analyserar: vilket brott? Objektiva sidan (gärning/underlåtenhet, effekt/fara, kausalitet), subjektiva sidan (uppsåt – vilken form – eller oaktsamhet), ansvarsfrihetsgrunder, ursäktande omständigheter, försök/medverkan, straffvärde. <i>Ju djupare analys, desto högre betyg.</i> Max C om du bara gör den här delen.</p>
+<p><span class="tag">Del 2 · B–A</span><b>Muntligt, dra en lapp.</b> 5 min förberedelse, sedan max 2 min redogörelse. Bara egna anteckningar från förberedelsen. Fliken <i>Dra en lapp</i> låter dig öva exakt så.</p>
+</div>
+<div class="card">
+<h2 style="margin-top:0">Hela straffrätten på en minut</h2>
+<p>För att någon ska dömas för brott ska man gå igenom stegen i ordning:</p>
+<ol>
+<li><b>Brottsbeskrivning:</b> finns ett straffbud som täcker gärningen? (legalitetsprincipen)</li>
+<li><b>Objektiva rekvisit:</b> gärning eller underlåtenhet, effekt eller fara, orsakssamband (adekvat kausalitet).</li>
+<li><b>Ansvarsfrihetsgrunder:</b> nödvärn, nöd, samtycke, laga befogenhet m.m. gör gärningen <i>tillåten</i>.</li>
+<li><b>Subjektiva rekvisit:</b> uppsåt (avsikt, insikt, likgiltighet) eller oaktsamhet, och det ska <i>täcka</i> de objektiva rekvisiten (täckningsprincipen).</li>
+<li><b>Ursäktande omständigheter:</b> gärningen är otillåten men personen kan inte klandras (under 15 år, ursäktlig villfarelse, nödvärnsexcess).</li>
+<li><b>Påföljd:</b> straffvärde (29 kap. BrB), sedan val av påföljd.</li>
+</ol>
+<p class="mute">Minnesregel: <b>Straffbud → Objektivt → Rättfärdigat? → Subjektivt → Ursäktat? → Påföljd</b>.</p>
+</div>
+</section>
+
+<section class="view" id="v-fragor">
+<p class="mute">Klicka på en fråga. Varje svar har en fördjupning och ett <b>muntligt manus</b> på ungefär 2 minuter, alltså det du kan säga till läraren.</p>
+<div id="qlist"></div>
+</section>
+
+<section class="view" id="v-mall">
+<div class="card">
+<h2 style="margin-top:0">Mall för caseanalysen (20 min)</h2>
+<p class="mute">Lägg ungefär 3 min på att läsa och stryka under, 15 min på att skriva och 2 min på att läsa igenom. Skriv i den här ordningen och använd rubriker. Det visar läraren att du har en metod.</p>
+<table>
+<tr><th style="width:28%">Rubrik</th><th>Vad du skriver</th><th style="width:22%">Ger nivå</th></tr>
+<tr><td><b>1. Vilket brott?</b></td><td>Namnge brottet och paragrafen om du kan (t.ex. misshandel 3 kap. 5 § BrB). Ange brottets <b>skyddsintresse</b> (liv, hälsa, egendom …). Nämn alternativ om det finns flera (mord eller vållande till annans död?).</td><td>E</td></tr>
+<tr><td><b>2. Objektiva sidan</b></td><td>Gärning eller underlåtenhet? Vid underlåtenhet: finns en <b>garantställning</b>? Effektbrott (vilken effekt?), farebrott (konkret eller abstrakt fara?) eller rent handlingsbrott? <b>Adekvat kausalitet</b>: hade följden inträffat utan gärningen? Var förloppet påräkneligt?</td><td>E–C</td></tr>
+<tr><td><b>3. Ansvarsfrihetsgrunder</b></td><td>Nödvärn, nöd, samtycke, laga befogenhet, order. Säg uttryckligen om det <i>inte</i> finns någon, och varför.</td><td>C</td></tr>
+<tr><td><b>4. Subjektiva sidan</b></td><td>Uppsåt eller oaktsamhet? <b>Vilken form</b> av uppsåt (avsikt/insikt/likgiltighet) och motivera med fakta ur caset. Om oaktsamhet: medveten eller omedveten? Är oaktsamheten straffbar för just detta brott? <b>Täckningsprincipen</b>: täcker uppsåtet alla delar, t.ex. också döden?</td><td>C–A</td></tr>
+<tr><td><b>5. Ursäktande omständigheter</b></td><td>Ålder (under 15 år), villfarelse (trodde sig angripen = putativt nödvärn), rättsvillfarelse, nödvärnsexcess, självförvållat rus (ursäktar inte).</td><td>C–A</td></tr>
+<tr><td><b>6. Osjälvständiga former</b></td><td>Fullbordat eller bara försök/förberedelse? Var fler inblandade: gärningsman, anstiftare eller medhjälpare?</td><td>C–A</td></tr>
+<tr><td><b>7. Straffvärde och påföljd</b></td><td>Försvårande eller förmildrande omständigheter (29 kap. 2–3 §§), ung ålder (29:7), trolig påföljd. Koppla gärna till straffets syften.</td><td>A</td></tr>
+<tr><td><b>8. Slutsats</b></td><td>En–två meningar: "X bör dömas för … eftersom …".</td><td>alla</td></tr>
+</table>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Det som skiljer A från C</h3>
+<ul>
+<li>Du <b>motiverar</b> med fakta ur caset ("hon visste att barnet inte kunde simma, alltså …"). Att bara räkna upp begrepp räcker inte.</li>
+<li>Du <b>prövar alternativ</b> och förklarar varför du väljer bort dem ("det kan inte vara avsiktsuppsåt eftersom … men likgiltighetsuppsåt kan föreligga eftersom …").</li>
+<li>Du ser <b>gränsdragningarna</b>: likgiltighetsuppsåt mot medveten oaktsamhet, nödvärn mot excess, försök mot förberedelse.</li>
+<li>Du använder <b>korrekta termer och lagrum</b>.</li>
+</ul>
+</div>
+</section>
+
+<section class="view" id="v-case">
+<p class="mute">Öva som på provet: läs caset, sätt en timer på 20 min, skriv din analys i rutan och jämför sedan med modellsvaret.</p>
+<div class="row" style="margin-bottom:8px"><button class="btn ghost" id="caseTimerBtn">Starta 20-minuterstimer</button><span id="caseTimer" class="mute"></span></div>
+<div id="caselist"></div>
+</section>
+
+<section class="view" id="v-flash">
+<div class="row"><span class="mute" id="fcount"></span><span style="flex:1"></span><button class="btn ghost" id="fshuf">Blanda</button></div>
+<div class="card flash" id="fcard"></div>
+<div class="row" style="justify-content:center"><button class="btn ghost" id="fprev">← Förra</button><button class="btn" id="fflip">Vänd</button><button class="btn ghost" id="fnext">Nästa →</button></div>
+</section>
+
+<section class="view" id="v-quiz">
+<div class="row"><span class="mute" id="qscore"></span><span style="flex:1"></span><button class="btn ghost" id="qrestart">Börja om</button></div>
+<div class="card" id="qbox"></div>
+</section>
+
+<section class="view" id="v-lapp">
+<div class="card">
+<p style="margin-top:0">Precis som på provet: dra en lapp, förbered dig i 5 minuter (skriv stödord nedan) och redogör sedan högt i max 2 minuter. Ta gärna upp dig själv på mobilen och lyssna efteråt.</p>
+<div class="lapp" id="lapp">Tryck på "Dra en lapp"</div>
+<div class="row" style="justify-content:center;margin-top:12px">
+<button class="btn" id="draw">Dra en lapp</button>
+<button class="btn ghost" id="prep">Starta 5 min förberedelse</button>
+<button class="btn ghost" id="talk">Starta 2 min redogörelse</button>
+</div>
+<div class="timer" id="ltimer">–:–</div>
+<textarea id="notes" placeholder="Dina stödord under förberedelsen…"></textarea>
+<div class="row" style="margin-top:10px"><button class="btn ghost" id="showManus">Visa manuset för frågan</button></div>
+<div id="manus"></div>
+</div>
+</section>
+
+</main>
+
+<script>
+const Q = [
+{t:"Vad är brott?", law:"1 kap. 1 § BrB",
+b:`<p><b>Formell definition:</b> Brott är en gärning som är beskriven i brottsbalken eller i annan lag eller författning och som det är föreskrivet straff för (1 kap. 1 § BrB). Straffen är <b>böter och fängelse</b> (1 kap. 3 § BrB).</p>
+<p><b>Materiell beskrivning:</b> Ett brott är en handling som samhället har bestämt är så skadlig för ett skyddsvärt intresse att den ska bestraffas. Det som är omoraliskt är inte automatiskt brottsligt. Det krävs att lagstiftaren har kriminaliserat gärningen.</p>
+<p><b>För att någon ska dömas krävs att</b></p>
+<ol><li>gärningen uppfyller brottsbeskrivningens <b>objektiva rekvisit</b>,</li><li>den inte är tillåten genom en <b>ansvarsfrihetsgrund</b>,</li><li>de <b>subjektiva rekvisiten</b> (uppsåt eller oaktsamhet) är uppfyllda och</li><li>det inte finns några <b>ursäktande omständigheter</b>.</li></ol>
+<p>Indelning i BrB: brott mot person (3–7 kap.), förmögenhetsbrott (8–12 kap.), brott mot allmänheten (13–15 kap.) och brott mot staten (16–22 kap.). Därtill finns specialstraffrätt utanför BrB, t.ex. narkotikastrafflagen och trafikbrottslagen.</p>`,
+o:"Ett brott är enligt 1 kap. 1 § brottsbalken en gärning som är beskriven i lag och som det finns straff för, alltså böter eller fängelse. Det räcker inte att något känns fel. Lagstiftaren måste ha kriminaliserat det, och det hänger ihop med legalitetsprincipen. För att någon faktiskt ska dömas måste fyra saker vara uppfyllda. Gärningen ska uppfylla de objektiva rekvisiten, alltså det som syns utåt, till exempel att någon dödas. Den får inte vara tillåten genom en ansvarsfrihetsgrund som nödvärn. De subjektiva rekvisiten ska vara uppfyllda, alltså uppsåt eller oaktsamhet. Och det får inte finnas ursäktande omständigheter, till exempel att personen är under 15 år. Brotten i BrB är indelade efter vad de skyddar: person, förmögenhet, allmänheten och staten."},
+{t:"Brottets skyddsintresse", law:"BrB:s systematik",
+b:`<p>Skyddsintresset är <b>det intresse som straffbudet vill skydda</b>, alltså anledningen till att gärningen är kriminaliserad.</p>
+<ul><li><b>Individuella intressen:</b> liv (mord, dråp), kroppslig integritet och hälsa (misshandel), frihet och frid (olaga hot, ofredande), sexuell integritet (våldtäkt), ära (förtal) och egendom (stöld, bedrägeri).</li>
+<li><b>Kollektiva intressen:</b> allmän säkerhet (allmänfarlig ödeläggelse, mordbrand), trafiksäkerhet (rattfylleri), rättsväsendets funktion (mened), statens säkerhet (spioneri).</li></ul>
+<p><b>Varför skyddsintresset spelar roll:</b></p>
+<ul><li>Det styr hur BrB är uppbyggd.</li><li>Det hjälper vid <b>tolkning</b> av en brottsbeskrivning: vad ska paragrafen förhindra?</li><li>Det påverkar <b>straffvärdet</b>, eftersom brott mot liv bedöms strängare än brott mot egendom.</li><li>Det avgör vem som kan <b>samtycka</b>. Man kan samtycka till att någon tar ens egendom men inte till att bli dödad, och inte till skada på kollektiva intressen.</li></ul>`,
+o:"Skyddsintresset är det som ett straffbud vill skydda, alltså varför en gärning över huvud taget är förbjuden. Vid mord är skyddsintresset liv, vid misshandel kroppslig integritet och hälsa, vid stöld egendom. Det finns också kollektiva skyddsintressen, till exempel trafiksäkerhet vid rattfylleri eller allmän säkerhet vid mordbrand. Brottsbalken är uppbyggd efter skyddsintresse: först brott mot person, sedan förmögenhetsbrott, brott mot allmänheten och sist brott mot staten. Skyddsintresset är viktigt av flera skäl. Det hjälper domstolen att tolka vad en paragraf ska omfatta, det påverkar hur allvarligt brottet är och därmed straffvärdet, och det avgör om man kan samtycka. Jag kan samtycka till att någon tar min cykel, men jag kan inte samtycka till att bli dödad."},
+{t:"Allmän och individuell prevention", law:"Straffteori",
+b:`<p>Prevention betyder att straff ska <b>förebygga framtida brott</b>. Prevention hör till de relativa straffteorierna, eftersom straffet motiveras av vad det leder till.</p>
+<table><tr><th>Allmänprevention</th><th>Individualprevention</th></tr>
+<tr><td>Riktar sig till <b>alla i samhället</b>.</td><td>Riktar sig till <b>den enskilde gärningsmannen</b>.</td></tr>
+<tr><td><b>Avskräckning:</b> hotet om straff får folk att avstå.<br><b>Normbildning/moralbildning:</b> att något är straffbelagt visar att det är fel, och människor internaliserar normen. Tydliga, kända straffbud och upptäcktsrisken är viktigare än hur stränga straffen är.</td><td><b>Avskräckning:</b> personen avstår för att slippa straff igen.<br><b>Inkapacitering (oskadliggörande):</b> den som sitter i fängelse kan inte begå brott ute i samhället.<br><b>Rehabilitering/behandling:</b> missbruksvård, utbildning, kontraktsvård, ungdomsvård.</td></tr>
+<tr><td>Påverkar främst <b>lagstiftaren</b>, när straffskalor bestäms.</td><td>Påverkar främst <b>påföljdsvalet</b> i domstolen, t.ex. skyddstillsyn med behandling.</td></tr></table>
+<p><b>Kritik:</b> Allmänprevention kan leda till att en person straffas hårt "för att statuera exempel", vilket strider mot proportionalitet och rättvisa. Individualprevention kan leda till olika straff för samma brott och har svagt forskningsstöd när det gäller behandling i fängelse. Därför bygger svensk påföljdsbestämning främst på <b>proportionalitet</b> (straffvärde), med individualpreventiva hänsyn vid påföljdsvalet.</p>`,
+o:"Prevention betyder att straffet ska förhindra framtida brott. Det finns två sorter. Allmänprevention riktar sig till alla i samhället. Hotet om straff ska avskräcka, men lika viktigt är den normbildande effekten: när något är straffbelagt lär sig människor att det är fel och följer normen av egen vilja. Forskning visar att upptäcktsrisken avskräcker mer än hur långa straffen är. Allmänprevention påverkar mest lagstiftaren när straffskalor bestäms. Individualprevention riktar sig till den som har begått brottet. Den kan fungera genom avskräckning, genom att personen oskadliggörs i fängelse, så kallad inkapacitering, eller genom rehabilitering som missbruksvård. Den påverkar mest domstolens val av påföljd, till exempel skyddstillsyn. Kritiken är att allmänprevention kan ge orättvist hårda straff och att individualprevention kan ge olika straff för samma brott. Därför utgår Sverige främst från proportionalitet."},
+{t:"Legalitetsprincipen i straffrätt", law:"1 kap. 1 § BrB, 2 kap. 10 § RF, 5 § BrP",
+b:`<p><b>Nullum crimen sine lege, nulla poena sine lege</b>: inget brott och inget straff utan lag. Principen skyddar individen mot godtycke från staten och ger <b>förutsebarhet</b>, så att man ska kunna veta i förväg vad som är straffbart.</p>
+<p><b>Fyra delprinciper:</b></p>
+<ol><li><b>Föreskriftskravet:</b> brott och straff ska framgå av lag (1 kap. 1 § BrB). Sedvana eller praxis kan inte skapa nya brott.</li>
+<li><b>Retroaktivitetsförbudet:</b> man får inte straffas för en gärning som inte var straffbar när den begicks, och inte heller få strängare straff än vad som gällde då (2 kap. 10 § RF, Europakonventionen art. 7). Undantag till förmån för den tilltalade: har lagen blivit <b>mildare</b> tillämpas den mildare lagen (5 § lagen om införande av BrB).</li>
+<li><b>Analogiförbudet:</b> domstolen får inte utvidga ett straffbud till likartade situationer som inte täcks av ordalydelsen. Analogi till den tilltalades förmån, t.ex. vid ansvarsfrihetsgrunder, är dock tillåten.</li>
+<li><b>Obestämdhetsförbudet (precisionskravet):</b> straffbud måste vara så tydligt formulerade att man kan förstå vad som är förbjudet.</li></ol>
+<p>Konsekvens: när något inte täcks av lagens ordalydelse ska den tilltalade frias, även om gärningen är klandervärd. Lagstiftaren får sedan täppa till luckan, vilket är förklaringen till att t.ex. grooming och olaga integritetsintrång har kriminaliserats senare.</p>`,
+o:"Legalitetsprincipen brukar sammanfattas med 'inget brott och inget straff utan lag'. Den ska skydda medborgarna mot godtycke från staten och ge förutsebarhet, så att man i förväg vet vad som är förbjudet. Den har fyra delar. För det första föreskriftskravet: brott och straff måste stå i lag, enligt 1 kap. 1 § brottsbalken. För det andra retroaktivitetsförbudet i 2 kap. 10 § regeringsformen: man kan inte straffas för något som inte var brottsligt när man gjorde det. Har lagen däremot blivit mildare får man den mildare lagen. För det tredje analogiförbudet: domstolen får inte dra ut ett straffbud till liknande fall som inte står i lagtexten. För det fjärde obestämdhetsförbudet: lagen måste vara så tydlig att man kan förstå den. Konsekvensen är att en domstol ibland måste fria någon som gjort något klandervärt, och sedan får lagstiftaren täppa till luckan."},
+{t:"Brottets objektiva rekvisit – vad är detta?", law:"Brottsbeskrivningen",
+b:`<p>De objektiva rekvisiten är de <b>yttre, iakttagbara omständigheter</b> som enligt brottsbeskrivningen måste föreligga, alltså det som händer i verkligheten oberoende av vad gärningsmannen tänkte.</p>
+<p><b>Vanliga objektiva rekvisit:</b></p>
+<ul><li><b>Gärningen:</b> handling eller underlåtenhet ("tager", "tillfogar", "berövar").</li>
+<li><b>Gärningsobjekt:</b> vad eller vem gärningen riktar sig mot ("annan", "vad annan tillhör").</li>
+<li><b>Effekt:</b> en följd ska inträffa (död, kroppsskada, skada på egendom).</li>
+<li><b>Fara:</b> en risk ska ha uppstått, konkret eller abstrakt.</li>
+<li><b>Orsakssamband (kausalitet):</b> gärningen ska ha orsakat effekten.</li>
+<li><b>Situationsrekvisit och gärningsmannarekvisit:</b> t.ex. "i trafik", "på allmän plats" eller att gärningsmannen ska vara tjänsteman (tjänstefel).</li>
+<li><b>"Olovligen":</b> otillåtenheten.</li></ul>
+<p><b>Exempel, stöld (8 kap. 1 § BrB):</b> "Den som olovligen tager vad annan tillhör med uppsåt att tillägna sig det …" Objektivt: <i>olovligen</i>, <i>tager</i>, <i>vad annan tillhör</i>, <i>tillägnelsen innebär skada</i>. Subjektivt: <i>uppsåt att tillägna sig</i>.</p>
+<p>Motsatsen är de <b>subjektiva rekvisiten</b>, det som finns i gärningsmannens huvud: uppsåt eller oaktsamhet.</p>`,
+o:"De objektiva rekvisiten är det som händer i den yttre verkligheten och som måste vara uppfyllt för att en gärning ska vara brottslig, oberoende av vad gärningsmannen tänkte. Man hittar dem genom att plocka isär brottsbeskrivningen i lagtexten. Vid mord i 3 kap. 1 § är det att någon 'berövar annan livet'. Gärningen är berövandet, gärningsobjektet är en annan människa, effekten är döden, och dessutom krävs ett orsakssamband mellan gärningen och döden. Andra typer av objektiva rekvisit är farerekvisit, till exempel att någon utsätts för fara för sitt liv, situationsrekvisit som 'i trafik' och krav på vem gärningsmannen är, till exempel att det ska vara en tjänsteman. Motsatsen är de subjektiva rekvisiten, alltså vad gärningsmannen visste och ville: uppsåt eller oaktsamhet. Båda sidorna måste vara uppfyllda för att man ska dömas."},
+{t:"Former av brottets objektiva rekvisit. Gärning och underlåtenhet.", law:"T.ex. 23 kap. 6 § BrB",
+b:`<p>Den brottsliga gärningen kan bestå av en <b>aktiv handling</b> (att slå, ta, ljuga) eller av en <b>underlåtenhet</b>, alltså att man inte gör något man borde ha gjort.</p>
+<h3>Äkta underlåtenhetsbrott</h3>
+<p>Brottsbeskrivningen själv beskriver en underlåtenhet. Exempel: <b>underlåtenhet att avslöja eller förhindra brott</b> (23 kap. 6 § BrB), underlåtenhet att anmäla och smitning från trafikolycksplats (trafikbrottslagen). Alla som omfattas av beskrivningen kan begå brottet.</p>
+<h3>Oäkta underlåtenhetsbrott</h3>
+<p>Brottet är egentligen beskrivet som en handling (t.ex. "berövar annan livet") men kan också begås genom underlåtenhet om personen har en <b>garantställning</b>, alltså en särskild skyldighet att agera. Garantställning kan grunda sig på:</p>
+<ul><li><b>Lag:</b> föräldrar mot sina barn (föräldrabalken).</li>
+<li><b>Avtal eller anställning:</b> barnvakt, livräddare, sjuksköterska.</li>
+<li><b>Nära relation eller gemenskap:</b> makar, expeditionsdeltagare.</li>
+<li><b>Tidigare farligt handlande (ingerens):</b> den som har skapat en fara är skyldig att avvärja den, t.ex. den som tänder en eld.</li>
+<li><b>Ansvar för en farokälla:</b> en hundägare, en fastighetsägare.</li></ul>
+<p>Exempel: en förälder som låter bli att ge sitt barn mat så att barnet dör kan dömas för mord eller dråp. En förbipasserande främling som inte hjälper ett barn som drunknar har ingen garantställning och kan inte dömas för dråp. Sverige har ingen allmän hjälpplikt i BrB, utom i vissa specialfall.</p>`,
+o:"Den brottsliga gärningen kan vara en handling, att man gör något, eller en underlåtenhet, att man inte gör något man borde. Underlåtenhetsbrott finns i två varianter. Äkta underlåtenhetsbrott är när lagtexten själv beskriver underlåtenheten, till exempel underlåtenhet att avslöja eller förhindra brott i 23 kap. 6 §. Oäkta underlåtenhetsbrott är brott som normalt begås genom handling, som mord, men som också kan begås genom underlåtenhet av den som har en garantställning, alltså en särskild plikt att agera. Garantställning kan komma från lag, som föräldrar mot sina barn, från avtal, som en livräddare eller barnvakt, från en nära relation, eller från att man själv har skapat faran, till exempel om man tänt en eld. En förälder som inte ger sitt barn mat så att det dör kan dömas för dråp, men en främling som går förbi en drunknande har ingen garantställning, eftersom Sverige inte har någon allmän hjälpplikt."},
+{t:"Effekt och farerekvisit", law:"T.ex. 3 kap. 1, 5, 9 §§ BrB",
+b:`<p>Brott kan indelas efter vad som måste ha <b>hänt</b> för att brottet ska vara fullbordat.</p>
+<table><tr><th>Typ</th><th>Vad krävs?</th><th>Exempel</th></tr>
+<tr><td><b>Effektbrott</b></td><td>En viss följd måste ha inträffat och orsakats av gärningen (kausalitet).</td><td>Mord och dråp (döden), misshandel (kroppsskada, sjukdom eller smärta), skadegörelse (skada på egendom).</td></tr>
+<tr><td><b>Konkret farebrott</b></td><td>En verklig fara ska ha uppstått i det enskilda fallet, men skadan behöver inte inträffa.</td><td>Framkallande av fara för annan (3 kap. 9 §: "konkret fara för död eller svår kroppsskada"), allmänfarlig ödeläggelse.</td></tr>
+<tr><td><b>Abstrakt farebrott</b></td><td>Gärningen är typiskt sett farlig. Det behöver inte bevisas att någon faktiskt utsattes för fara.</td><td>Rattfylleri (vissa promille räcker), olaga vapeninnehav.</td></tr>
+<tr><td><b>Rena handlingsbrott</b></td><td>Själva handlingen räcker.</td><td>Mened, olaga hot (hotet i sig).</td></tr></table>
+<p><b>Varför?</b> Farebrotten gör att samhället kan ingripa <b>innan</b> skadan inträffar. Vid effektbrott som inte fullbordats kan man i stället dömas för försök, om försöket är kriminaliserat.</p>
+<p>Exempel: A kör berusad i 120 km/h förbi en skola. Det är rattfylleri (abstrakt fara) redan genom körningen. Om ett barn hoppar undan i sista stund kan det också vara framkallande av fara för annan (konkret fara). Om barnet blir påkört och dör är det effekten död, alltså vållande till annans död eller mord.</p>`,
+o:"Effektbrott och farebrott är två sätt att beskriva vad som måste ha hänt för att ett brott ska vara fullbordat. Vid effektbrott måste en viss följd ha inträffat. Vid mord är effekten döden och vid misshandel kroppsskada eller smärta. Då måste man också bevisa orsakssamband mellan gärningen och effekten. Vid farebrott behöver ingen skada ha inträffat, det räcker att en fara har uppstått. Konkret fara betyder att det i just det fallet fanns en verklig risk, till exempel framkallande av fara för annan, där någon nästan skadades. Abstrakt fara betyder att gärningen typiskt sett är farlig, och man behöver inte visa att någon faktiskt var i fara. Rattfylleri är det tydligaste exemplet: det räcker att man kör med för mycket alkohol i blodet. Farebrotten finns för att samhället ska kunna ingripa innan skadan sker."},
+{t:"Vad menas med adekvat kausalitet?", law:"Praxis",
+b:`<p>Vid effektbrott måste det finnas ett <b>orsakssamband</b> mellan gärningen och effekten. Bedömningen sker i två steg.</p>
+<ol><li><b>Betingelseläran (condicio sine qua non, "nödvändigt villkor"):</b> hade effekten uteblivit om gärningen inte hade utförts? Om svaret är ja finns ett faktiskt orsakssamband.</li>
+<li><b>Adekvans:</b> var effekten en <b>påräknelig</b> följd av gärningen? Man tar bort helt osannolika, slumpmässiga förlopp. Den som slår någon lätt på armen kan inte hållas ansvarig om offret blir sjukskrivet, åker hem, och dör i en bilolycka på vägen till apoteket.</li></ol>
+<p><b>Viktiga följder:</b></p>
+<ul><li><b>Äggskalsskalle-principen ("tunna skallen"):</b> man får ta offret som det är. Om offret har en dold hjärtsjukdom och dör av ett slag finns ändå kausalitet. Men det kan saknas <b>uppsåt</b> till döden, och då döms gärningsmannen för misshandel och vållande till annans död.</li>
+<li><b>Flera orsaker:</b> gärningen behöver inte vara den enda orsaken, det räcker att den är en av orsakerna.</li>
+<li><b>Avbrott i kausalkedjan:</b> om ett nytt, självständigt och avgörande handlande kommer emellan (t.ex. en tredje person som avsiktligt dödar offret på sjukhuset) kan sambandet brytas.</li></ul>`,
+o:"Adekvat kausalitet handlar om orsakssambandet mellan en gärning och en effekt, och det behövs vid effektbrott som mord och misshandel. Man prövar det i två steg. Först betingelseläran: hade effekten uteblivit om gärningen inte hade gjorts? Om svaret är ja finns ett faktiskt samband. Men det räcker inte, för då skulle man kunna gå hur långt bakåt som helst. Därför krävs också adekvans: följden ska ha varit påräknelig, alltså ett förlopp som inte är helt osannolikt. Om jag knuffar någon och hon slår huvudet i trottoarkanten och dör, så är det adekvat. Om hon i stället blir påkörd av en bil en timme senare på väg till apoteket är det inte adekvat. Man får också ta offret som det är, enligt principen om den tunna skallen. Om offret har en dold sjukdom och dör finns ändå kausalitet, men då kan uppsåt till döden saknas."},
+{t:"Täckningsprincipen. Skuldprincipen.", law:"1 kap. 2 § BrB",
+b:`<h3>Täckningsprincipen</h3>
+<p>Uppsåtet, eller oaktsamheten, måste <b>täcka alla objektiva rekvisit</b> i brottsbeskrivningen. Gärningsmannen måste alltså ha haft uppsåt till varje del av brottet: gärningen, effekten, kausaliteten och omständigheterna. Det kräver också <b>simultanitet</b>: uppsåtet ska finnas vid gärningstillfället, så uppsåt som uppstår efteråt räcker inte.</p>
+<p><b>Exempel:</b> A slår B med uppsåt att skada, men B faller och dör. A:s uppsåt täcker misshandeln men inte döden, så A kan inte dömas för mord. Däremot kan A dömas för misshandel, och om döden var en förutsebar följd för vållande till annans död. Ett annat exempel är stöld: tror A att cykeln är hans egen täcker uppsåtet inte rekvisitet "vad annan tillhör", och då är det ingen stöld.</p>
+<p>Undantag: för vissa <b>försvårande omständigheter</b> räcker oaktsamhet (1 kap. 2 § 2 st. BrB, t.ex. när man "borde ha insett" att offret var under 15 år vid vissa sexualbrott).</p>
+<h3>Skuldprincipen</h3>
+<p>Ingen ska straffas utan <b>personlig skuld</b>, alltså att man kan klandras för gärningen. Ansvar förutsätter uppsåt eller oaktsamhet, så det finns inget <b>strikt ansvar</b> i straffrätten, man straffas inte bara för att något hände. Skuldprincipen betyder också att:</p>
+<ul><li>straffet ska stå i proportion till skulden (proportionalitetsprincipen), så att den som orsakat något av oaktsamhet straffas mildare än den som gjort det med uppsåt,</li>
+<li>man bara ansvarar för sina egna handlingar, inte för andras (ingen kollektiv skuld) och</li>
+<li>personer som inte kan klandras, som barn under 15 år, inte straffas.</li></ul>`,
+o:"Täckningsprincipen betyder att gärningsmannens uppsåt måste täcka alla objektiva rekvisit i brottet, och att det ska finnas när gärningen utförs. Om A slår B för att skada honom, och B faller och dör, så har A uppsåt till misshandeln men inte till döden. Uppsåtet täcker alltså inte effekten död, och därför kan A inte dömas för mord. A döms i stället för misshandel och vållande till annans död, om döden var förutsebar. Om jag tar en cykel för att jag tror att den är min, så täcker mitt uppsåt inte rekvisitet att den tillhör någon annan, och då är det ingen stöld. Skuldprincipen betyder att ingen ska straffas utan personlig skuld. Man måste kunna klandras, alltså ha haft uppsåt eller varit oaktsam. Det finns inget strikt ansvar i straffrätten. Skuldprincipen innebär också att straffet ska stå i proportion till hur klandervärt det var, och att barn under 15 år inte straffas."},
+{t:"Ansvarsfrihetsgrunder", law:"24 kap. BrB",
+b:`<p>Ansvarsfrihetsgrunder gör att en gärning som uppfyller en brottsbeskrivning ändå är <b>tillåten</b> (rättfärdigad). Då finns inget brott.</p>
+<table><tr><th>Grund</th><th>Innehåll</th></tr>
+<tr><td><b>Nödvärn</b> (24:1)</td><td>Rätt att försvara sig mot ett <b>påbörjat eller överhängande brottsligt angrepp</b> på person eller egendom, mot den som med våld hindrar att egendom tas tillbaka på bar gärning, och mot den som olagligen trängt in i en bostad m.m. Försvaret får inte vara <b>uppenbart oförsvarligt</b>, så man måste jämföra angreppets farlighet och det försvarade intresset med försvaret.</td></tr>
+<tr><td><b>Nödvärnsexcess</b> (24:6)</td><td>Om försvaret gick för långt kan man ändå gå fri om omständigheterna var sådana att man <b>svårligen kunde besinna sig</b>. Det räknas egentligen som en ursäktande omständighet.</td></tr>
+<tr><td><b>Nöd</b> (24:4)</td><td>Fara för liv, hälsa, egendom eller annat viktigt intresse, och gärningen är <b>försvarlig</b> med hänsyn till faran och den skada som orsakas. Exempel: man krossar en bilruta för att rädda en hund eller ett barn i en het bil.</td></tr>
+<tr><td><b>Laga befogenhet</b> (24:2–3)</td><td>Polisens och andras rätt att använda våld i tjänsten, t.ex. för att bryta motstånd vid gripande. Även <b>envarsgripande</b> (24 kap. 7 § RB): vem som helst får gripa den som tas på bar gärning för brott med fängelse i straffskalan.</td></tr>
+<tr><td><b>Samtycke</b> (24:7)</td><td>Gärningen är tillåten om den som kan förfoga över intresset samtycker, och samtycket är frivilligt, informerat och givet i förväg. Gäller inte om gärningen är <b>oförsvarlig</b> med hänsyn till skadan, syftet och omständigheterna (t.ex. allvarlig skada). Exempel: boxning och tatuering.</td></tr>
+<tr><td><b>Order</b> (24:8)</td><td>Den som följer en order från någon han är skyldig att lyda går fri, om han inte <b>insåg eller borde ha insett</b> att ordern var brottslig.</td></tr>
+<tr><td><b>Social adekvans</b> (oskriven)</td><td>Handlingar som samhället accepterar, t.ex. kirurgiska ingrepp och risker inom idrott.</td></tr></table>`,
+o:"Ansvarsfrihetsgrunder gör att en gärning som egentligen uppfyller brottsbeskrivningen ändå är tillåten, och då finns inget brott. De flesta står i 24 kap. brottsbalken. Den viktigaste är nödvärn i 24:1: man får försvara sig mot ett påbörjat eller överhängande brottsligt angrepp, men försvaret får inte vara uppenbart oförsvarligt. Man jämför alltså angreppet och försvaret. Går man för långt kan man ändå gå fri om man svårligen kunde besinna sig, det kallas nödvärnsexcess. Sedan finns nöd: om det finns fara för till exempel liv eller egendom får man göra något som annars vore brottsligt, om det är försvarligt, som att krossa en bilruta för att rädda ett barn. Samtycke gäller till exempel boxning och tatuering, men inte allvarlig skada. Det finns också laga befogenhet, till exempel polisens rätt att använda våld eller envarsgripande, och order. Därutöver finns den oskrivna sociala adekvansen, som täcker sådant som operationer."},
+{t:"Former av brottets subjektiva rekvisit", law:"1 kap. 2 § BrB",
+b:`<p>Den subjektiva sidan handlar om <b>vad som fanns i gärningsmannens huvud</b>: vad hen visste, ville och förstod.</p>
+<ul><li><b>Uppsåt (dolus):</b> huvudregeln. Enligt 1 kap. 2 § BrB krävs uppsåt för brott enligt BrB <b>om inte annat sägs</b>. Former: avsiktsuppsåt, insiktsuppsåt och likgiltighetsuppsåt.</li>
+<li><b>Oaktsamhet (culpa):</b> straffbart bara när lagen uttryckligen säger det, t.ex. vållande till annans död (3:7), vållande till kroppsskada (3:8), vårdslöshet i trafik. Former: medveten och omedveten oaktsamhet, samt grad (ringa, normal, grov).</li>
+<li><b>Överskjutande subjektiva rekvisit:</b> ett syfte eller en avsikt som går längre än det som objektivt måste hända. Exempel: vid stöld ska gärningsmannen ha <b>tillägnelseuppsåt</b> (avsikt att behålla saken) och vid bedrägeri <b>berikningsuppsåt</b>. Saken behöver inte faktiskt ha tillägnats. Det räcker att det var syftet. Det är det som skiljer stöld från egenmäktigt förfarande och tillgrepp av fortskaffningsmedel ("lånade" bilen).</li>
+<li><b>Motiv:</b> är inget rekvisit men kan påverka straffvärdet, t.ex. hatbrott (29 kap. 2 § 7 p.).</li></ul>
+<p><b>Rus:</b> självförvållat rus utesluter inte uppsåt. Man bedöms som om man var nykter (1 kap. 2 § 3 st.).</p>`,
+o:"De subjektiva rekvisiten handlar om vad gärningsmannen visste och ville, alltså vad som fanns i hens huvud. Det finns två huvudformer: uppsåt och oaktsamhet. Enligt 1 kap. 2 § brottsbalken krävs uppsåt om inte något annat sägs. Oaktsamhet är bara straffbart om lagen uttryckligen säger det, som vid vållande till annans död. Uppsåt delas in i avsiktsuppsåt, insiktsuppsåt och likgiltighetsuppsåt. Oaktsamhet kan vara medveten eller omedveten, och den kan vara ringa eller grov. Dessutom finns så kallade överskjutande subjektiva rekvisit. Vid stöld krävs till exempel tillägnelseuppsåt: man ska ha haft avsikten att behålla saken, men det behöver inte ha skett. Det är det som skiljer stöld från att bara låna något olovligt. Motivet är inget rekvisit, men det kan höja straffvärdet, till exempel vid hatbrott. Självförvållat rus ursäktar inte, man bedöms som om man var nykter."},
+{t:"Uppsåt och dess former", law:"NJA 2004 s. 176",
+b:`<p>Uppsåt betyder i grunden att gärningsmannen <b>visste vad hen gjorde och ville det</b>, eller åtminstone accepterade det. Uppsåtet ska omfatta alla objektiva rekvisit (täckningsprincipen). Det finns tre former, från starkast till svagast:</p>
+<table><tr><th>Form</th><th>Innebörd</th><th>Exempel</th></tr>
+<tr><td><b>Avsiktsuppsåt</b></td><td>Effekten var <b>syftet</b> med handlingen eller ett nödvändigt <b>medel</b> för att nå syftet. Det spelar ingen roll hur sannolik effekten var.</td><td>A skjuter B för att döda honom. A tänder eld på huset för att få ut försäkringspengar (branden är medlet).</td></tr>
+<tr><td><b>Insiktsuppsåt</b></td><td>Gärningsmannen var <b>praktiskt taget säker</b> på att effekten skulle inträffa, som en följd av handlingen, även om hen inte ville det.</td><td>A spränger ett flygplan för försäkringen och vet att piloten sitter i det. Pilotens död är inte syftet, men A är säker på den.</td></tr>
+<tr><td><b>Likgiltighetsuppsåt</b></td><td>Gärningsmannen <b>insåg att det fanns en risk</b> att effekten skulle inträffa, och var <b>likgiltig</b> inför att den förverkligades. Risken var inget skäl att avstå. Infördes genom NJA 2004 s. 176 och ersatte det tidigare "eventuella uppsåtet".</td><td>A kör i 150 km/h genom ett bostadsområde för att undkomma polisen, inser att någon kan dödas men struntar i det.</td></tr></table>
+<p><b>Viktigt:</b> uppsåt måste bevisas utifrån <b>objektiva omständigheter</b>, eftersom man inte kan se in i någons huvud: vapnets farlighet, var på kroppen hugget träffade, vad gärningsmannen sa före och efter.</p>
+<p>Ibland används benämningen <i>direkt uppsåt</i> för avsiktsuppsåt och <i>indirekt uppsåt</i> för insiktsuppsåt. Fråga läraren vilka termer kursen använder.</p>`,
+o:"Uppsåt betyder att gärningsmannen visste vad hen gjorde och ville det, eller åtminstone accepterade det. Det finns tre former. Avsiktsuppsåt är den starkaste: effekten var själva syftet, eller ett nödvändigt medel för att nå syftet. Om jag skjuter någon för att döda honom är det avsiktsuppsåt. Insiktsuppsåt betyder att jag inte vill effekten, men att jag är praktiskt taget säker på att den kommer att inträffa. Om jag spränger ett flygplan för att få försäkringspengar och vet att piloten sitter i det, har jag insiktsuppsåt till hans död. Den svagaste formen är likgiltighetsuppsåt, från rättsfallet NJA 2004 s. 176. Gärningsmannen insåg att det fanns en risk, och var likgiltig inför om den förverkligades. Ett exempel är någon som kör i 150 km/h genom ett bostadsområde för att komma undan polisen och struntar i om någon dör. Eftersom man inte kan se in i någons huvud bevisas uppsåtet utifrån omständigheter, till exempel vilket vapen som användes och var hugget träffade."},
+{t:"Oaktsamhet. Skillnaden med indirekt uppsåt.", law:"T.ex. 3 kap. 7–8 §§ BrB",
+b:`<p><b>Oaktsamhet</b> betyder att gärningsmannen inte har varit tillräckligt försiktig. Hen har brustit i den aktsamhet man kan begära i situationen. Måttstocken är vad en förnuftig person i samma situation hade gjort, och man tar hänsyn till personens egna förutsättningar. Oaktsamhet är bara straffbar när lagen säger det.</p>
+<ul><li><b>Medveten oaktsamhet:</b> gärningsmannen <b>insåg risken</b> men <b>litade på</b> att den inte skulle förverkligas, eller tog inte ställning. Exempel: "jag visste att det var halt, men jag trodde att jag skulle hinna bromsa."</li>
+<li><b>Omedveten oaktsamhet:</b> gärningsmannen insåg inte risken men <b>borde ha insett</b> den. Exempel: man glömmer att kolla i backspegeln när man backar.</li>
+<li><b>Grad:</b> ringa, "normal" eller <b>grov</b> oaktsamhet. Den grova graden påverkar straffet (t.ex. grovt vållande till annans död).</li></ul>
+<h3>Skillnaden mot uppsåt (likgiltighetsuppsåt/indirekt uppsåt)</h3>
+<p>Gränsen går mellan <b>medveten oaktsamhet</b> och <b>likgiltighetsuppsåt</b>. I båda fallen har gärningsmannen insett risken. Skillnaden ligger i inställningen:</p>
+<table><tr><th>Likgiltighetsuppsåt</th><th>Medveten oaktsamhet</th></tr>
+<tr><td>"Det kan hända, men det spelar ingen roll för mig." Risken var <b>inget skäl att avstå</b>.</td><td>"Det kan hända, men jag litar på att det inte gör det." Gärningsmannen <b>hoppades/trodde</b> att det skulle gå bra.</td></tr>
+<tr><td>Ger brott med uppsåt, t.ex. <b>mord</b> eller <b>dråp</b>.</td><td>Ger oaktsamhetsbrott, t.ex. <b>vållande till annans död</b>, med betydligt lägre straff.</td></tr></table>
+<p>Om läraren med <i>indirekt uppsåt</i> menar insiktsuppsåt är skillnaden ännu tydligare: vid insiktsuppsåt är gärningsmannen <b>praktiskt taget säker</b> på följden, vid medveten oaktsamhet ser hen bara en risk och litar på att det går bra.</p>`,
+o:"Oaktsamhet betyder att man inte har varit tillräckligt försiktig, man har brustit i den aktsamhet som kan krävas. Det är bara straffbart när lagen säger det, som vid vållande till annans död. Det finns två former. Vid medveten oaktsamhet insåg gärningsmannen risken men litade på att den inte skulle förverkligas, till exempel 'jag visste att det var halt men trodde att jag skulle hinna bromsa'. Vid omedveten oaktsamhet insåg hen inte risken men borde ha gjort det. Oaktsamhet kan också vara grov. Skillnaden mot indirekt uppsåt, eller likgiltighetsuppsåt, är svår, eftersom gärningsmannen i båda fallen har insett risken. Skillnaden är inställningen. Vid likgiltighetsuppsåt var det likgiltigt om det hände, risken var inget skäl att avstå. Vid medveten oaktsamhet trodde eller hoppades personen att det skulle gå bra. Det kan vara skillnaden mellan att dömas för mord och för vållande till annans död, vilket ger mycket olika straff."},
+{t:"Ursäktande omständigheter", law:"1:6, 24:6, 24:9 BrB",
+b:`<p>Vid ursäktande omständigheter är gärningen fortfarande <b>otillåten</b>, men gärningsmannen kan <b>inte klandras</b>, och därför blir det inget ansvar. Skillnaden mot ansvarsfrihetsgrunder: en ansvarsfrihetsgrund säger att <i>gärningen</i> var okej, en ursäktande omständighet säger att <i>personen</i> inte kan lastas för den.</p>
+<ul><li><b>Ålder (1 kap. 6 § BrB):</b> den som är <b>under 15 år</b> döms inte till påföljd. Gärningen är fortfarande ett brott (polisen kan utreda och socialtjänsten ingripa), och andra kan dömas för medverkan.</li>
+<li><b>Faktisk villfarelse:</b> gärningsmannen misstog sig om faktiska omständigheter. Exempel: <b>putativt nödvärn</b>, A tror att B ska attackera honom med kniv (det var en telefon) och slår till. Gärningsmannen bedöms utifrån situationen som hen uppfattade den, och då saknas uppsåt. Kan villfarelsen bero på oaktsamhet kan man dömas för ett oaktsamhetsbrott.</li>
+<li><b>Rättsvillfarelse (24 kap. 9 §):</b> man trodde att gärningen var tillåten. Huvudregeln är att okunskap om lagen inte ursäktar. Undantag om villfarelsen var <b>uppenbart ursäktlig</b>, t.ex. på grund av felaktig kungörelse av lagen eller felaktiga besked från en myndighet.</li>
+<li><b>Nödvärnsexcess (24 kap. 6 §):</b> försvaret var uppenbart oförsvarligt, men omständigheterna var sådana att gärningsmannen <b>svårligen kunde besinna sig</b> (panik, chock).</li>
+<li><b>Allvarlig psykisk störning:</b> i Sverige utesluter detta i dag inte ansvar i sig. Den påverkar främst påföljden, t.ex. rättspsykiatrisk vård och förbudet mot fängelse i 30 kap. 6 § BrB. Frågan om att införa ett tillräknelighetskrav har diskuterats länge.</li>
+<li><b>Självförvållat rus</b> ursäktar inte (1 kap. 2 § 3 st.).</li></ul>`,
+o:"Vid ursäktande omständigheter är gärningen fortfarande otillåten, men gärningsmannen kan inte klandras för den. Skillnaden mot ansvarsfrihetsgrunder är att det inte är gärningen som är okej, utan personen som ursäktas. Den viktigaste är ålder: enligt 1 kap. 6 § brottsbalken döms den som är under 15 år inte till påföljd. Det är fortfarande ett brott, men socialtjänsten tar hand om det. Sedan finns villfarelse. Faktisk villfarelse är när man misstar sig om fakta, till exempel putativt nödvärn: man tror att någon ska attackera en med en kniv, men det var en mobil. Man bedöms då utifrån hur man uppfattade situationen. Rättsvillfarelse är när man trodde att något var lagligt. Det ursäktar bara om det var uppenbart ursäktligt, till exempel om en myndighet har gett fel besked. Nödvärnsexcess i 24:6 innebär att man gick för långt i sitt försvar men inte kunde besinna sig. Självförvållat rus ursäktar däremot inte."},
+{t:"Osjälvständiga brottsformer (medverkan och förberedelse)", law:"23 kap. BrB",
+b:`<p>Osjälvständiga brottsformer kallas så eftersom de alltid hänger ihop med ett <b>huvudbrott</b>. De straffbelägger handlingar <b>före</b> det fullbordade brottet (försök, förberedelse, stämpling), eller <b>bidrag</b> till brottet (medverkan).</p>
+<h3>Brottsstadierna</h3>
+<ol><li><b>Förberedelse (23:2):</b> med uppsåt att utföra eller främja brott tar man emot eller lämnar pengar som betalning för brottet, eller skaffar, tillverkar eller tar hand om hjälpmedel (t.ex. köper en kofot inför ett inbrott). Det krävs att det fanns fara för att brottet skulle fullbordas.</li>
+<li><b>Stämpling (23:2 2 st.):</b> man beslutar i samråd med andra om brottet, försöker anstifta någon eller åtar sig att utföra det.</li>
+<li><b>Försök (23:1):</b> man har <b>påbörjat utförandet</b> av brottet men det har inte fullbordats, och det fanns <b>fara</b> för fullbordan (eller faran var utesluten bara på grund av tillfälliga omständigheter).</li>
+<li><b>Fullbordat brott.</b></li></ol>
+<p>Försök, förberedelse och stämpling är <b>bara straffbara om det särskilt anges</b> vid det aktuella brottet (t.ex. mord, rån och grov stöld). <b>Frivilligt tillbakaträdande (23:3):</b> den som frivilligt avbryter eller förhindrar fullbordan går fri från ansvar för försöket eller förberedelsen.</p>
+<h3>Medverkan (23:4)</h3>
+<ul><li><b>Gärningsman/medgärningsman:</b> den eller de som utför gärningen, ensamma eller tillsammans och i samförstånd.</li>
+<li><b>Anstiftan:</b> att förmå någon annan att begå brottet, t.ex. genom övertalning eller betalning.</li>
+<li><b>Medhjälp:</b> att <b>främja</b> brottet "med råd eller dåd", t.ex. stå på vakt, låna ut verktyg eller ge information.</li></ul>
+<p>Medverkan är straffbar vid alla brott med <b>fängelse i straffskalan</b>. Var och en bedöms efter <b>sitt eget uppsåt eller sin egen oaktsamhet</b>. Den som bara spelat en mindre roll kan få lägre straff (23:5).</p>`,
+o:"Osjälvständiga brottsformer är brottsformer som alltid hänger ihop med ett huvudbrott, och de regleras i 23 kap. brottsbalken. Först finns brottsstadierna innan brottet är fullbordat. Förberedelse betyder att man skaffar hjälpmedel eller pengar för att begå brottet, till exempel köper en kofot inför ett inbrott. Stämpling betyder att man planerar brottet med andra eller försöker få någon att begå det. Försök betyder att man har börjat utföra brottet men att det inte fullbordades, och att det fanns en fara att det skulle bli fullbordat. Dessa är bara straffbara om det står vid brottet, som vid mord och rån. Om man frivilligt avbryter går man fri. Sedan finns medverkan i 23:4. Medgärningsmän utför brottet tillsammans. Anstiftare förmår någon annan att begå brottet. Medhjälpare främjar brottet med råd eller dåd, till exempel genom att stå på vakt. Medverkan är straffbar vid alla brott med fängelse i straffskalan, och var och en bedöms efter sitt eget uppsåt."},
+{t:"Syften med straff", law:"Straffteori",
+b:`<p>Det finns två huvudtyper av straffteorier.</p>
+<h3>Absoluta teorier (bakåtblickande)</h3>
+<ul><li><b>Vedergällning (retribution):</b> straffet är förtjänt, man har gjort fel och ska därför lida. Ursprunget är "öga för öga".</li>
+<li><b>Proportionalitet och rättvisa:</b> modern version. Straffet ska stå i proportion till brottets allvar, och lika brott ska straffas lika. Det är <b>grunden för svensk påföljdsbestämning</b> genom straffvärdet.</li></ul>
+<h3>Relativa teorier (framåtblickande)</h3>
+<ul><li><b>Allmänprevention:</b> avskräcka och skapa normer hos alla.</li>
+<li><b>Individualprevention:</b> avskräckning, inkapacitering och rehabilitering av den enskilde.</li></ul>
+<h3>Andra syften</h3>
+<ul><li><b>Upprättelse för brottsoffret:</b> samhället visar att offret har blivit utsatt för något fel. Hit hör också skadestånd.</li>
+<li><b>Samhällsskydd och trygghet.</b></li>
+<li><b>Förhindra självtäkt:</b> staten har monopol på straff, så att folk inte tar lagen i egna händer.</li>
+<li><b>Normbekräftelse:</b> straffet visar vilka värden samhället står för.</li></ul>
+<p><b>Sverige i dag:</b> en blandning (s.k. blandteori). Lagstiftaren motiverar kriminalisering med allmänprevention, domstolen bestämmer straffets storlek efter <b>proportionalitet</b> och väljer påföljd med hänsyn till individualprevention. Den senaste tidens straffskärpningar (t.ex. för gängbrott) motiveras främst med allmänprevention och samhällsskydd.</p>`,
+o:"Straffets syften brukar delas in i två grupper. Absoluta teorier blickar bakåt: man straffas för att man har förtjänat det. Det kallas vedergällning, och den moderna formen är proportionalitet, alltså att straffet ska motsvara brottets allvar och att lika brott ska straffas lika. Relativa teorier blickar framåt: straffet ska förhindra nya brott. Där finns allmänprevention, som ska avskräcka alla och skapa normer, och individualprevention, som ska påverka just gärningsmannen genom avskräckning, inkapacitering eller rehabilitering. Andra syften är att ge brottsoffret upprättelse, att skydda samhället och att förhindra självtäkt, eftersom staten har ensamrätt på att straffa. Sverige använder en blandning. Lagstiftaren motiverar straff med allmänprevention, domstolarna bestämmer straffets längd efter proportionalitet, och väljer påföljd med hänsyn till individen, till exempel om personen behöver behandling."},
+{t:"Olika typer av straff", law:"1 kap. 3 § BrB, 25–32 kap. BrB",
+b:`<p><b>Straff</b> enligt BrB är bara <b>böter och fängelse</b> (1 kap. 3 §). <b>Påföljd</b> är ett vidare begrepp som också omfattar villkorlig dom, skyddstillsyn och överlämnande till särskild vård.</p>
+<table><tr><th>Påföljd</th><th>Innehåll</th></tr>
+<tr><td><b>Böter</b> (25 kap.)</td><td><b>Dagsböter</b> (antal efter brottets allvar, belopp efter inkomst, så att straffet känns lika för rik och fattig), <b>penningböter</b> (fast belopp för lindriga brott) och <b>normerade böter</b>. Den lindrigaste påföljden. Vanlig för snatteri och ringa narkotikabrott.</td></tr>
+<tr><td><b>Fängelse</b> (26 kap.)</td><td>På viss tid eller på livstid. Den strängaste påföljden. Villkorlig frigivning sker normalt efter två tredjedelar av strafftiden. Kan avtjänas med fotboja (intensivövervakning) vid korta straff.</td></tr>
+<tr><td><b>Villkorlig dom</b> (27 kap.)</td><td>En prövotid på två år. Kombineras ofta med dagsböter eller samhällstjänst (oavlönat arbete).</td></tr>
+<tr><td><b>Skyddstillsyn</b> (28 kap.)</td><td>Prövotid med övervakning av frivården. Kan kombineras med samhällstjänst, kontraktsvård (missbruksbehandling) eller kortare fängelse.</td></tr>
+<tr><td><b>Ungdomspåföljder</b> (32 kap.)</td><td>För unga lagöverträdare (15–20 år): ungdomsvård (via socialtjänsten), ungdomstjänst, ungdomsövervakning och sluten ungdomsvård.</td></tr>
+<tr><td><b>Rättspsykiatrisk vård</b> (31 kap.)</td><td>För den som begått brott under påverkan av allvarlig psykisk störning.</td></tr></table>
+<p>Andra rättsverkningar av brott: förverkande (t.ex. vapen och vinning), utvisning, skadestånd och kontaktförbud.</p>
+<p><b>Huvudregel:</b> domstolen ska fästa särskilt avseende vid omständigheter som talar för en <b>lindrigare påföljd än fängelse</b> (30 kap. 4 §). Fängelse väljs vid högt straffvärde, art (vissa brott, t.ex. rattfylleri och vissa våldsbrott) och återfall.</p>`,
+o:"Enligt 1 kap. 3 § brottsbalken finns bara två straff: böter och fängelse. Men domstolen kan välja mellan fler påföljder. Böter är den lindrigaste. Det finns dagsböter, där antalet beror på brottets allvar och beloppet på inkomsten, så att det ska kännas lika för alla, och penningböter med fast belopp. Fängelse är den strängaste påföljden, på viss tid eller livstid, och normalt friges man villkorligt efter två tredjedelar. Mellan dem finns villkorlig dom, som innebär en prövotid på två år och ofta kombineras med böter eller samhällstjänst, och skyddstillsyn, där man övervakas av frivården och kan få till exempel missbruksbehandling genom kontraktsvård. För unga finns särskilda påföljder som ungdomsvård, ungdomstjänst och sluten ungdomsvård. För den som är allvarligt psykiskt störd finns rättspsykiatrisk vård. Huvudregeln är att domstolen ska välja något lindrigare än fängelse om det går."},
+{t:"Vad betyder straffvärde?", law:"29 kap. 1–3 §§ BrB",
+b:`<p><b>Straffvärde</b> är ett mått på hur <b>allvarligt</b> ett brott är, jämfört med andra brott. Det uttrycks som en tid eller ett antal dagsböter (t.ex. "straffvärdet motsvarar fängelse i åtta månader") och är det första steget i påföljdsbestämningen.</p>
+<ul><li><b>Abstrakt straffvärde:</b> hur allvarligt lagstiftaren anser att brottstypen är, alltså <b>straffskalan</b>. Mord: fängelse 10–18 år eller livstid. Misshandel: fängelse i högst 2 år (ringa: böter eller fängelse i högst 6 månader).</li>
+<li><b>Konkret straffvärde:</b> hur allvarligt <b>just den här gärningen</b> är, och var inom skalan den hamnar.</li></ul>
+<h3>Hur bestäms det konkreta straffvärdet? (29 kap. 1 §)</h3>
+<p>Domstolen beaktar särskilt den <b>skada, kränkning eller fara</b> som gärningen inneburit, vad den tilltalade <b>insett eller borde ha insett</b> och hans <b>avsikter eller motiv</b>.</p>
+<ul><li><b>Försvårande (29:2):</b> t.ex. att brottet var planerat, att offret var särskilt skyddslöst, att motivet var att kränka någon på grund av t.ex. ursprung eller sexuell läggning (hatbrott), att ett barn bevittnade brottet, att brottet hade koppling till kriminella nätverk.</li>
+<li><b>Förmildrande (29:3):</b> t.ex. att den tilltalade blev provocerad, att hen hade nedsatt förmåga att kontrollera sig, eller att gärningen hade samband med stark mänsklig medkänsla.</li></ul>
+<h3>Skillnad mot straffmätning</h3>
+<p>Efter straffvärdet görs <b>straffmätningen</b>. Där kan straffet sänkas på grund av omständigheter som inte har med själva gärningen att göra: <b>ung ålder</b> (under 21 år, 29:7), billighetsskäl som att gärningsmannen själv blivit allvarligt skadad, att hen anmält sig själv, eller att det gått lång tid sedan brottet (29:5). Återfall kan höja straffet (29:4).</p>`,
+o:"Straffvärde är ett mått på hur allvarligt ett brott är jämfört med andra brott, och det uttrycks som en tid i fängelse eller antal dagsböter. Det är grunden för proportionalitetsprincipen. Man skiljer mellan abstrakt och konkret straffvärde. Det abstrakta straffvärdet är straffskalan som lagstiftaren har satt, till exempel 10 till 18 år eller livstid för mord. Det konkreta straffvärdet är hur allvarlig just den här gärningen är, var i skalan den hamnar. Enligt 29 kap. 1 § tittar domstolen på vilken skada, kränkning eller fara gärningen orsakade, vad gärningsmannen insåg och vilka avsikter och motiv hen hade. Försvårande omständigheter i 29:2 är till exempel planering, hatbrott eller att ett barn såg brottet. Förmildrande omständigheter i 29:3 är till exempel provokation. Efter straffvärdet görs straffmätningen, där straffet kan sänkas för saker som inte har med gärningen att göra, till exempel att gärningsmannen var under 21 år."}
+];
+
+const CASES = [
+{t:"Case 1 – Knuffen utanför festen", lvl:"Grundnivå",
+text:"Efter en fest på lördagskvällen börjar Adam (19) och Ben (20) bråka om en tjej. Ben kallar Adam för något nedsättande. Adam blir arg och knuffar Ben hårt med båda händerna mot bröstet. Ben faller baklänges, slår huvudet i trottoarkanten och dör av en hjärnblödning på sjukhuset två dagar senare. Adam säger i förhöret: \"Jag ville bara att han skulle hålla käften. Jag hade aldrig trott att han skulle dö.\"",
+a:`<p><b>Brott:</b> Misshandel (3 kap. 5 § BrB) och vållande till annans död (3 kap. 7 §). Mord eller dråp (3:1–2) prövas men faller på den subjektiva sidan. Skyddsintresse: liv och kroppslig integritet.</p>
+<p><b>Objektiva sidan:</b> Aktiv handling (knuffen), alltså inte underlåtenhet. Effektbrott: effekten är kroppsskada och död. <b>Kausalitet:</b> Utan knuffen hade Ben inte fallit och dött (betingelse). Att man slår huvudet i marken när man knuffas omkull är ett <b>påräkneligt</b> förlopp, så kausaliteten är adekvat. Att döden kom först efter två dagar spelar ingen roll.</p>
+<p><b>Ansvarsfrihetsgrunder:</b> Inget nödvärn, eftersom ett okvädingsord inte är ett påbörjat eller överhängande <i>brottsligt angrepp</i> som rättfärdigar våld. Inget samtycke.</p>
+<p><b>Subjektiva sidan:</b> Adam hade <b>avsiktsuppsåt</b> till själva knuffen och till att tillfoga smärta, alltså uppsåt till misshandel. Enligt <b>täckningsprincipen</b> måste uppsåtet också täcka döden för mord/dråp. Adam varken ville döden (inte avsikt), var säker på den (inte insikt) eller var likgiltig inför en risk han insåg (sannolikt inte likgiltighetsuppsåt, eftersom en knuff typiskt sett inte är dödlig och han inte använde vapen eller sparkade mot huvudet). Däremot <b>borde han ha insett</b> att en hård knuff på en gata kan leda till att någon faller illa: <b>omedveten oaktsamhet</b> till döden, alltså vållande till annans död.</p>
+<p><b>Ursäktande omständigheter:</b> Adam är 19 år och straffmyndig. Om han var berusad ursäktar inte det (1:2 3 st.).</p>
+<p><b>Straffvärde och påföljd:</b> Bens provokation kan vara förmildrande (29:3 1 p.), men ett ord motiverar inte våld så det väger lätt. Döden höjer allvaret kraftigt. Adam är under 21 år, vilket ger strafflindring (29:7). Fängelse är troligt, men ungdomspåföljd eller skyddstillsyn kan diskuteras.</p>
+<p><b>Slutsats:</b> Adam bör dömas för misshandel och vållande till annans död, inte för dråp, eftersom uppsåtet inte täcker döden.</p>`},
+{t:"Case 2 – Mobilen vid plaskdammen", lvl:"Mellannivå",
+text:"Sara sitter på en parkbänk med sin son Leo, 2 år, som leker vid en plaskdamm. Sara vet att Leo inte kan simma och att han brukar gå ner i vattnet. Hon börjar scrolla på mobilen och tittar inte upp på 15 minuter. Leo går ner i den djupare delen av dammen och drunknar. En annan pappa, Jonas, satt på bänken bredvid och såg att Leo gick ner i vattnet men tänkte att \"det är inte mitt barn\".",
+a:`<p><b>Brott:</b> För Sara: vållande till annans död (3 kap. 7 §), möjligen grovt. Mord eller dråp prövas. Skyddsintresse: liv.</p>
+<p><b>Objektiva sidan:</b> Sara har inte gjort något, så det är en <b>underlåtenhet</b>. Vållande till annans död är normalt ett handlingsbrott, så det blir ett <b>oäkta underlåtenhetsbrott</b>. Det kräver <b>garantställning</b>, och den har Sara som förälder enligt lag (föräldrabalkens tillsynsansvar). Effekten är döden. <b>Kausalitet:</b> om Sara hade tittat upp och agerat hade Leo med största sannolikhet räddats, och att ett tvåårigt barn drunknar utan tillsyn i vatten är ett påräkneligt förlopp.</p>
+<p><b>Jonas:</b> Han har <b>ingen garantställning</b> (inte förälder, inget avtal, han har inte skapat faran). Sverige har ingen allmän hjälpplikt, så han kan inte dömas för Leos död, även om det är moraliskt klandervärt. Det illustrerar <b>legalitetsprincipen</b>.</p>
+<p><b>Ansvarsfrihetsgrunder:</b> Inga.</p>
+<p><b>Subjektiva sidan:</b> Sara ville inte att Leo skulle dö (inte avsiktsuppsåt) och var inte säker på det (inte insiktsuppsåt). <b>Likgiltighetsuppsåt</b> kräver att hon insåg risken och var likgiltig inför att den förverkligades. Det är inte troligt: en mamma är sällan likgiltig inför sitt barns död. Hon visste att Leo inte kunde simma och brukade gå i vattnet. Det talar för <b>medveten oaktsamhet</b> (hon kände till risken men trodde att det skulle gå bra) eller i varje fall <b>omedveten oaktsamhet</b> (hon borde ha insett). 15 minuter utan tillsyn av en tvååring vid vatten kan vara <b>grov oaktsamhet</b>, vilket ger grovt vållande till annans död.</p>
+<p><b>Ursäktande omständigheter:</b> Inga.</p>
+<p><b>Straffvärde och påföljd:</b> Att Sara själv har förlorat sitt barn är ett starkt <b>billighetsskäl</b> (29:5), och domstolen kan sätta ner straffet kraftigt eller i undantagsfall döma till påföljdseftergift. Det individualpreventiva behovet av straff är mycket litet.</p>
+<p><b>Slutsats:</b> Sara kan dömas för (grovt) vållande till annans död genom underlåtenhet. Jonas går fri.</p>`},
+{t:"Case 3 – Biljakten", lvl:"Hög nivå (A)",
+text:"Clara (24) kör en stulen bil när polisen försöker stoppa henne. Hon gasar och kör i 130 km/h genom ett bostadsområde med 30-gräns en eftermiddag när barn är på väg hem från skolan. Hon kör mot rött ljus vid ett övergångsställe och kör på Elsa, 11 år, som dör. Clara säger: \"Jag såg att det var folk ute men jag tänkte bara på att komma undan. Jag trodde att folk skulle flytta på sig.\" Hennes kompis David satt bredvid och skrek \"Kör, kör, de får inte ta oss!\"",
+a:`<p><b>Brott:</b> För Clara prövas <b>mord</b> (3:1) eller <b>dråp</b> (3:2) med likgiltighetsuppsåt, alternativt <b>grovt vållande till annans död</b> (3:7–8). Dessutom grov vårdslöshet i trafik, olovlig körning om hon saknar körkort och tillgrepp av fortskaffningsmedel (stulen bil). För David: anstiftan eller medhjälp (23:4).</p>
+<p><b>Objektiva sidan:</b> Aktiv handling (körningen). Effektbrott (döden). Klar och adekvat kausalitet, eftersom en påkörning i 130 km/h är ett typiskt förlopp. Själva körningen innebär också <b>konkret fara</b> för andra fotgängare (framkallande av fara för annan, 3:9) och <b>abstrakt fara</b> genom trafikbrotten.</p>
+<p><b>Ansvarsfrihetsgrunder:</b> Inga. Att fly från polisen är ingen nödsituation, och faran är självförvållad.</p>
+<p><b>Subjektiva sidan, den avgörande frågan:</b> Inte avsiktsuppsåt (syftet var att komma undan, inte att döda) och inte insiktsuppsåt (hon var inte säker på att någon skulle dö). Gränsen går mellan <b>likgiltighetsuppsåt</b> och <b>medveten oaktsamhet</b> (NJA 2004 s. 176).</p>
+<ul><li><i>För likgiltighetsuppsåt:</i> Hon <b>insåg risken</b> ("jag såg att det var folk ute"). Risken var mycket hög: 130 km/h i 30-zon, rött ljus, skolbarn. Hon "tänkte bara på att komma undan", alltså att risken för människoliv <b>inte var ett skäl att avstå</b>. Det talar för att hon var likgiltig.</li>
+<li><i>För medveten oaktsamhet:</i> "Jag trodde att folk skulle flytta på sig", vilket kan tolkas som att hon <b>litade på</b> att det skulle gå bra. Domstolar är försiktiga med att döma för mord i trafikfall, eftersom gärningsmannen också utsätter sig själv för fara.</li></ul>
+<p>Min bedömning: graden av risk och hennes egen insikt talar för likgiltighetsuppsåt, och då döms hon för <b>dråp</b> eller <b>mord</b>. Om domstolen inte kan utesluta att hon faktiskt litade på att det skulle gå bra blir det <b>grovt vållande till annans död</b> på grund av medveten, grov oaktsamhet.</p>
+<p><b>David:</b> Han har uppmanat Clara, vilket kan vara <b>psykisk medhjälp</b> eller anstiftan till trafikbrotten. Han bedöms efter <i>sitt eget</i> uppsåt (23:4). Det är svårt att visa att han hade uppsåt till Elsas död. Medverkan till vållande (oaktsamhet) är möjlig eftersom medverkan gäller alla brott med fängelse i skalan.</p>
+<p><b>Ursäktande omständigheter:</b> Inga. Clara är straffmyndig och över 21, så ingen strafflindring för ålder. Rus skulle inte ursäkta.</p>
+<p><b>Straffvärde:</b> Mycket högt: ett barn har dödats (särskilt skyddslöst offer), stöldbil, flykt från polisen. Fängelse är den enda rimliga påföljden. Här blir straffets <b>allmänpreventiva</b> syfte tydligt: samhället vill markera mot hänsynslös körning.</p>
+<p><b>Slutsats:</b> Clara döms sannolikt för dråp eller mord med likgiltighetsuppsåt (alternativt grovt vållande till annans död), samt trafikbrotten och tillgreppet. David kan dömas för medverkan till trafikbrotten.</p>`},
+{t:"Case 4 – Inbrottet", lvl:"Hög nivå (A)",
+text:"Filip (17) och hans lillebror Hugo (14) planerar att bryta sig in i en villa. Filip köper en kofot och handskar veckan innan. På natten står Hugo på vakt vid grinden medan Filip bryter upp altandörren. Ägaren Ingrid (68) vaknar, tar en golfklubba och slår Filip i huvudet när han kommer in i vardagsrummet. Filip faller och ligger stilla. Ingrid, i panik, slår honom ytterligare tre gånger i huvudet. Filip får en allvarlig hjärnskada. Hugo springer därifrån.",
+a:`<p><b>Filips brott:</b> <b>Förberedelse</b> till grov stöld när han köpte kofot och handskar (23:2, hjälpmedel). När han bröt sig in och tog sig in i huset hade han <b>påbörjat utförandet</b>, alltså <b>försök till grov stöld</b> (8:4, inbrott i bostad är en försvårande omständighet). Förberedelsen konsumeras av försöket. Han hade uppsåt (avsiktsuppsåt) och <b>tillägnelseuppsåt</b>, ett överskjutande subjektivt rekvisit. Även hemfridsbrott (4:6) konsumeras. Han är 17 år, så han är straffmyndig, men han får kraftig strafflindring (29:7) och ungdomspåföljd är trolig (32 kap.).</p>
+<p><b>Hugo:</b> Han har främjat brottet <b>med dåd</b> genom att stå på vakt, alltså <b>medhjälp</b> (23:4). Men han är <b>14 år</b> och döms därför inte till påföljd (1 kap. 6 §). Det är en <b>ursäktande omständighet</b>: gärningen är fortfarande ett brott, och socialtjänsten blir inblandad.</p>
+<p><b>Ingrid, första slaget:</b> Objektivt är det misshandel (3:5). Men Filip gjorde ett <b>påbörjat brottsligt angrepp</b> och hade olagligen trängt in i hennes bostad. Det är en klar <b>nödvärnssituation</b> (24:1). Ett slag med golfklubba mot en inkräktare nattetid är inte <b>uppenbart oförsvarligt</b>, särskilt som hon är 68 år och inte vet om han är beväpnad. Hon går fri för det första slaget.</p>
+<p><b>Ingrid, slagen när Filip ligger stilla:</b> Angreppet är nu inte längre påbörjat eller överhängande, så nödvärnsrätten har i princip upphört. Slagen är objektivt <b>grov misshandel</b> (3:6) och de är <b>uppenbart oförsvarliga</b>. Subjektivt har hon avsiktsuppsåt eller åtminstone insiktsuppsåt till skadan. Frågan blir <b>nödvärnsexcess (24:6)</b>: kunde hon <b>svårligen besinna sig</b>? Det talar för det att hon var en äldre kvinna, ensam, nyss väckt mitt i natten, i panik och chock, och att det gick snabbt. Domstolar har frikänt i liknande situationer. Det som talar emot är att Filip låg stilla och att hon slog tre gånger mot huvudet.</p>
+<p><b>Slutsats:</b> Filip döms för försök till grov stöld (förberedelsen konsumeras), med strafflindring för ung ålder. Hugo är medhjälpare men under 15 år och kan inte dömas. Ingrid är fri för första slaget genom nödvärn, och för resten troligen genom nödvärnsexcess, men det är en gränsdragningsfråga som domstolen måste pröva.</p>`}
+];
+
+const FLASH = [
+["Brott (definition)","En gärning som är beskriven i lag och för vilken straff är föreskrivet (1:1 BrB)."],
+["Vilka två straff finns i BrB?","Böter och fängelse (1:3 BrB)."],
+["Skyddsintresse","Det intresse ett straffbud skyddar, t.ex. liv, hälsa, egendom, trafiksäkerhet."],
+["Allmänprevention","Straffet ska avskräcka och skapa normer hos alla i samhället."],
+["Individualprevention","Straffet ska påverka den enskilde: avskräckning, inkapacitering, rehabilitering."],
+["Legalitetsprincipen","Inget brott och inget straff utan lag (nullum crimen, nulla poena sine lege)."],
+["Retroaktivitetsförbudet","Ingen får straffas för en gärning som inte var straffbar när den begicks (2:10 RF)."],
+["Analogiförbudet","Straffbud får inte tillämpas på fall som inte täcks av ordalydelsen."],
+["Objektiva rekvisit","Yttre omständigheter i brottsbeskrivningen: gärning, effekt, fara, kausalitet m.m."],
+["Äkta underlåtenhetsbrott","Lagen beskriver själv en underlåtenhet, t.ex. underlåtenhet att avslöja brott (23:6)."],
+["Oäkta underlåtenhetsbrott","Ett handlingsbrott som begås genom underlåtenhet av någon med garantställning."],
+["Garantställning","Särskild skyldighet att agera: lag (förälder), avtal, nära relation, tidigare farligt handlande, farokälla."],
+["Effektbrott","En följd måste inträda, t.ex. död vid mord."],
+["Konkret farebrott","En verklig fara måste ha uppstått i det enskilda fallet (t.ex. framkallande av fara för annan)."],
+["Abstrakt farebrott","Gärningen är typiskt farlig, faktisk fara behöver inte visas (t.ex. rattfylleri)."],
+["Adekvat kausalitet","Betingelse (utan gärningen ingen effekt) + adekvans (förloppet var påräkneligt)."],
+["Täckningsprincipen","Uppsåtet ska täcka alla objektiva rekvisit, vid gärningstillfället."],
+["Skuldprincipen","Ingen ska straffas utan personlig skuld; inget strikt ansvar i straffrätten."],
+["Nödvärn (24:1)","Försvar mot påbörjat/överhängande brottsligt angrepp, ej uppenbart oförsvarligt."],
+["Nöd (24:4)","Fara för liv, hälsa, egendom m.m.; gärningen ska vara försvarlig."],
+["Nödvärnsexcess (24:6)","Överdrivet försvar ursäktas om man svårligen kunde besinna sig."],
+["Samtycke (24:7)","Gör gärningen tillåten om den inte är oförsvarlig med hänsyn till skadan."],
+["Avsiktsuppsåt","Effekten var syftet eller ett nödvändigt medel."],
+["Insiktsuppsåt","Gärningsmannen var praktiskt taget säker på att effekten skulle inträffa."],
+["Likgiltighetsuppsåt","Insåg risken och var likgiltig inför att den förverkligades (NJA 2004 s. 176)."],
+["Medveten oaktsamhet","Insåg risken men litade på att den inte skulle förverkligas."],
+["Omedveten oaktsamhet","Insåg inte risken men borde ha gjort det."],
+["Överskjutande subjektivt rekvisit","Syfte som inte behöver förverkligas, t.ex. tillägnelseuppsåt vid stöld."],
+["Straffmyndighetsålder","15 år (1:6 BrB)."],
+["Putativt nödvärn","Man tror felaktigt att man angrips; bedöms efter den uppfattade situationen."],
+["Försök (23:1)","Utförandet påbörjat, ej fullbordat, fara för fullbordan."],
+["Förberedelse (23:2)","Skaffa hjälpmedel eller pengar med uppsåt att utföra eller främja brott."],
+["Medhjälp","Främja brott med råd eller dåd (23:4), t.ex. stå på vakt."],
+["Anstiftan","Förmå någon annan att begå brott (23:4)."],
+["Frivilligt tillbakaträdande (23:3)","Den som frivilligt avbryter går fri från ansvar för försök/förberedelse."],
+["Straffvärde","Hur allvarligt brottet är; skada, kränkning, fara, insikt, motiv (29:1)."],
+["Abstrakt vs konkret straffvärde","Abstrakt = straffskalan. Konkret = just denna gärning."],
+["Straffmätning","Efter straffvärdet: t.ex. ung ålder (29:7), billighetsskäl (29:5), återfall (29:4)."]
+];
+
+const QUIZ = [
+{q:"Var finns den formella definitionen av brott?",o:["1 kap. 1 § BrB","2 kap. 10 § RF","24 kap. 1 § BrB","29 kap. 1 § BrB"],a:0},
+{q:"Vilket av följande är ett abstrakt farebrott?",o:["Mord","Rattfylleri","Framkallande av fara för annan","Misshandel"],a:1},
+{q:"En förälder som inte ger sitt barn mat så att det dör har begått …",o:["ett äkta underlåtenhetsbrott","ett oäkta underlåtenhetsbrott","ett abstrakt farebrott","inget brott"],a:1},
+{q:"Vad krävs vid adekvat kausalitet utöver betingelse?",o:["Att gärningsmannen ville effekten","Att förloppet var påräkneligt","Att effekten inträffade direkt","Att offret var friskt"],a:1},
+{q:"A var praktiskt taget säker på att B skulle dö, men ville det inte. Vilken uppsåtsform?",o:["Avsiktsuppsåt","Insiktsuppsåt","Likgiltighetsuppsåt","Medveten oaktsamhet"],a:1},
+{q:"Vad skiljer likgiltighetsuppsåt från medveten oaktsamhet?",o:["Om gärningsmannen insåg risken","Gärningsmannens inställning till att risken förverkligas","Om effekten inträffade","Om gärningsmannen var berusad"],a:1},
+{q:"Vilket rättsfall införde likgiltighetsuppsåtet?",o:["NJA 2004 s. 176","NJA 1959 s. 63","1 kap. 1 § BrB","24 kap. 6 § BrB"],a:0},
+{q:"Vilken är INTE en ansvarsfrihetsgrund?",o:["Nödvärn","Nöd","Att gärningsmannen är 14 år","Samtycke"],a:2},
+{q:"Nödvärn får inte vara …",o:["proportionerligt","uppenbart oförsvarligt","riktat mot egendom","utfört av en äldre person"],a:1},
+{q:"Täckningsprincipen innebär att …",o:["straffet ska täcka skadan","uppsåtet ska täcka alla objektiva rekvisit","skadestånd ska betalas","lagen ska vara tydlig"],a:1},
+{q:"Vad gäller som huvudregel för oaktsamhet?",o:["Alltid straffbart","Straffbart bara när lagen säger det","Aldrig straffbart","Straffbart bara för barn"],a:1},
+{q:"Vilket är ett exempel på överskjutande subjektivt rekvisit?",o:["Tillägnelseuppsåt vid stöld","Döden vid mord","Fara vid rattfylleri","Ålder"],a:0},
+{q:"Att stå på vakt vid ett inbrott är typiskt …",o:["anstiftan","medhjälp","stämpling","förberedelse"],a:1},
+{q:"Försök är straffbart …",o:["vid alla brott","bara när det särskilt anges vid brottet","aldrig","bara vid trafikbrott"],a:1},
+{q:"Vad betyder retroaktivitetsförbudet?",o:["Man kan inte straffas för något som inte var brottsligt när man gjorde det","Domare får inte ändra sig","Straff ska vara proportionerliga","Brott preskriberas"],a:0},
+{q:"A tror att B ska hugga honom, men B tar fram en mobil. A slår B. Detta kallas …",o:["nödvärnsexcess","putativt nödvärn","rättsvillfarelse","social adekvans"],a:1},
+{q:"Vilken straffteori är grunden för straffvärdet?",o:["Allmänprevention","Rehabilitering","Proportionalitet","Inkapacitering"],a:2},
+{q:"Vad är 'inkapacitering'?",o:["Att gärningsmannen oskadliggörs, t.ex. genom fängelse","Att straffet avskräcker alla","Behandling av missbruk","Skadestånd"],a:0},
+{q:"Vad innebär dagsböter?",o:["Fast belopp för alla","Antal efter brottets allvar, belopp efter inkomst","En dag i fängelse","Samhällstjänst"],a:1},
+{q:"Vilket hör till straffmätningen, inte straffvärdet?",o:["Hatmotiv","Att offret var skyddslöst","Att gärningsmannen var under 21 år","Planering"],a:2},
+{q:"Vilket rekvisit gör att man skiljer på uppsåt och oaktsamhet?",o:["Objektivt","Subjektivt","Situationsrekvisit","Kausalitet"],a:1},
+{q:"Självförvållat rus …",o:["ursäktar alltid","ursäktar inte","är en ansvarsfrihetsgrund","sänker åldern för straffmyndighet"],a:1}
+];
+
+// tabs
+const TABS=[["oversikt","Översikt"],["fragor","18 frågor"],["mall","Case-mall"],["case","Övningscase"],["flash","Flashcards"],["quiz","Quiz"],["lapp","Dra en lapp"]];
+const tabsEl=document.getElementById('tabs');
+TABS.forEach(([id,l])=>{const b=document.createElement('button');b.textContent=l;b.dataset.id=id;b.onclick=()=>{location.hash=id};tabsEl.appendChild(b)});
+function show(){let h=location.hash.slice(1);if(!TABS.find(t=>t[0]===h))h='oversikt';document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+h));tabsEl.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.id===h));window.scrollTo(0,0)}
+window.addEventListener('hashchange',show);show();
+
+// questions
+const ql=document.getElementById('qlist');
+Q.forEach((q,i)=>{const d=document.createElement('details');d.className='q';d.innerHTML=`<summary><span class="n">${i+1}</span><span>${q.t}</span></summary><div class="body"><p class="law">${q.law}</p>${q.b}<div class="oral"><b>Muntligt manus (≈2 min)</b><br>${q.o}</div></div>`;ql.appendChild(d)});
+
+// cases
+const cl=document.getElementById('caselist');
+CASES.forEach((c,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<span class="tag">${c.lvl}</span><h2 style="margin-top:6px">${c.t}</h2><p>${c.text}</p><textarea placeholder="Skriv din analys här… (sparas inte)"></textarea><details style="margin-top:10px"><summary class="btn ghost" style="display:inline-block">Visa modellsvar</summary><div style="margin-top:10px">${c.a}</div></details>`;cl.appendChild(d)});
+let ct=null;document.getElementById('caseTimerBtn').onclick=()=>{clearInterval(ct);let s=1200;const el=document.getElementById('caseTimer');const f=()=>{el.textContent=s>0?`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')} kvar`:'Tiden är ute!';if(s--<=0)clearInterval(ct)};f();ct=setInterval(f,1000)};
+
+// flashcards
+let fi=0,fb=false,FD=[...FLASH];const fc=document.getElementById('fcard');
+function fr(){fc.classList.toggle('back',fb);fc.innerHTML=fb?FD[fi][1]:`<b>${FD[fi][0]}</b>`;document.getElementById('fcount').textContent=`Kort ${fi+1} av ${FD.length}`}
+fc.onclick=document.getElementById('fflip').onclick=()=>{fb=!fb;fr()};
+document.getElementById('fnext').onclick=()=>{fi=(fi+1)%FD.length;fb=false;fr()};
+document.getElementById('fprev').onclick=()=>{fi=(fi-1+FD.length)%FD.length;fb=false;fr()};
+document.getElementById('fshuf').onclick=()=>{FD.sort(()=>Math.random()-.5);fi=0;fb=false;fr()};fr();
+
+// quiz
+let qi=0,qs=0,QD=[];const qb=document.getElementById('qbox');
+function qstart(){QD=[...QUIZ].sort(()=>Math.random()-.5);qi=0;qs=0;qr()}
+function qr(){document.getElementById('qscore').textContent=`Poäng: ${qs} / ${QD.length}`;
+if(qi>=QD.length){qb.innerHTML=`<h2 style="margin-top:0">Klart!</h2><p>Du fick ${qs} av ${QD.length} rätt.</p>`;return}
+const q=QD[qi];qb.innerHTML=`<p class="mute">Fråga ${qi+1} av ${QD.length}</p><h3>${q.q}</h3>`;
+q.o.forEach((o,j)=>{const b=document.createElement('button');b.className='opt';b.textContent=o;b.onclick=()=>{qb.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===q.a)x.classList.add('ok')});if(j===q.a)qs++;else b.classList.add('bad');document.getElementById('qscore').textContent=`Poäng: ${qs} / ${QD.length}`;const n=document.createElement('button');n.className='btn';n.style.marginTop='10px';n.textContent='Nästa';n.onclick=()=>{qi++;qr()};qb.appendChild(n)};qb.appendChild(b)})}
+document.getElementById('qrestart').onclick=qstart;qstart();
+
+// lapp
+let cur=-1,lt=null;const lt_el=document.getElementById('ltimer');
+document.getElementById('draw').onclick=()=>{cur=Math.floor(Math.random()*Q.length);document.getElementById('lapp').textContent=`${cur+1}. ${Q[cur].t}`;document.getElementById('manus').innerHTML='';document.getElementById('notes').value='';clearInterval(lt);lt_el.textContent='–:–'};
+function run(s,label){clearInterval(lt);const f=()=>{lt_el.textContent=s>0?`${label} ${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`:'Tiden är ute!';if(s--<=0)clearInterval(lt)};f();lt=setInterval(f,1000)}
+document.getElementById('prep').onclick=()=>run(300,'Förbered:');
+document.getElementById('talk').onclick=()=>run(120,'Prata:');
+document.getElementById('showManus').onclick=()=>{if(cur<0)return;document.getElementById('manus').innerHTML=`<div class="oral"><b>Manus</b><br>${Q[cur].o}</div>`};
+</script>
+</body>
+</html>
